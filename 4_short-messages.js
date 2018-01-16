@@ -20,3 +20,9 @@ module.exports = getShortMessages;
     console.log('Ideal case: ', getShortMessages(myObjs).length === 1);
 }
 
+// Empty array
+{
+    let myObjs = [];
+    console.log('Ideal case: ', getShortMessages(myObjs).length === 0);
+}
+
