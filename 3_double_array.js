@@ -14,7 +14,7 @@ module.exports = doubleAll;
     let residue = a.filter(function (element, key) {
         return a[key] === 2 * a_copy[key];
     });
-    console.log('Ideal case test:\t', a.length == residue.length);
+    console.log('Ideal case test:\t', a.length === residue.length);
 }
 
 // Empty array case
@@ -25,5 +25,5 @@ module.exports = doubleAll;
     let residue = a.filter(function (element, key) {
         return a[key] === 2 * a_copy[key];
     });
-    console.log('Empty array test:\t', a.length == residue.length);
+    console.log('Empty array test:\t', a.length === residue.length);
 }
