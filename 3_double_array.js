@@ -10,8 +10,8 @@ module.exports = doubleAll;
 {
     let a = [1, 2, 3];
     let a_copy = a.slice();
-    a = doubleAll(a);
-    residue = a.filter(function (element, key) {
+    let a = doubleAll(a);
+    let residue = a.filter(function (element, key) {
         return a[key] === 2 * a_copy[key];
     });
     console.log('Ideal case test:\t', a.length == residue.length);
@@ -21,8 +21,8 @@ module.exports = doubleAll;
 {
     let a = [];
     let a_copy = a.slice();
-    a = doubleAll(a);
-    residue = a.filter(function (element, key) {
+    let a = doubleAll(a);
+    let residue = a.filter(function (element, key) {
         return a[key] === 2 * a_copy[key];
     });
     console.log('Empty array test:\t', a.length == residue.length);
