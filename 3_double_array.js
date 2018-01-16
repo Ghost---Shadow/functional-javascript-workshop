@@ -1,5 +1,10 @@
+/**
+ * Doubles all numbers in the array
+ * @param {Number[]} numbers
+ * @return {Number[]} doubledNumbers
+ */
 function doubleAll(numbers) {
-    return numbers.map(function (element) {
+    return numbers.map(function double(element) {
         return element * 2;
     });
 }
@@ -9,10 +14,10 @@ module.exports = doubleAll;
 // Ideal case
 {
     let a = [1, 2, 3];
-    let a_copy = a.slice();
-    let a = doubleAll(a);
-    let residue = a.filter(function (element, key) {
-        return a[key] === 2 * a_copy[key];
+    let aCopy = a.slice();
+    a = doubleAll(a);
+    let residue = a.filter(function check(element, key) {
+        return a[key] === 2 * aCopy[key];
     });
     console.log('Ideal case test:\t', a.length === residue.length);
 }
@@ -20,10 +25,10 @@ module.exports = doubleAll;
 // Empty array case
 {
     let a = [];
-    let a_copy = a.slice();
-    let a = doubleAll(a);
-    let residue = a.filter(function (element, key) {
-        return a[key] === 2 * a_copy[key];
+    let aCopy = a.slice();
+    a = doubleAll(a);
+    let residue = a.filter(function check(element, key) {
+        return a[key] === 2 * aCopy[key];
     });
-    console.log('Empty array test:\t', a.length === residue.length);
+    console.log('Ideal case test:\t', a.length === residue.length);
 }

@@ -1,8 +1,13 @@
+/**
+ * Converts input to upper case
+ * @param {String} input
+ * @return {String}
+ */
 function upperCaser(input) {
     return input.toUpperCase();
 }
 
-module.exports = upperCaser
+module.exports = upperCaser;
 
 // Ideal case
 console.log('Ideal case test:\t', upperCaser('hello') === 'HELLO');
