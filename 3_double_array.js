@@ -16,3 +16,14 @@ module.exports = doubleAll;
     });
     console.log('Ideal case test:\t', a.length == residue.length);
 }
+
+// Empty array case
+{
+    let a = [];
+    let a_copy = a.slice();
+    a = doubleAll(a);
+    residue = a.filter(function (element, key) {
+        return a[key] === 2 * a_copy[key];
+    });
+    console.log('Empty array test:\t', a.length == residue.length);
+}
