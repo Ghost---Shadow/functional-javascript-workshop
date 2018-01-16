@@ -4,11 +4,13 @@
  * @return {String[]}
  */
 function getShortMessages(messages) {
-    return messages.filter(function shortMessage(messageObject) {
+    let filteredMessages = messages.filter(function isShort(messageObject) {
         return messageObject.message.length < 50;
-    }).map(function stripObject(messageObject) {
+    });
+    let stringArray = filteredMessages.map(function stripObject(messageObject) {
         return messageObject.message;
     });
+    return stringArray;
 }
 
 module.exports = getShortMessages;
@@ -16,8 +18,13 @@ module.exports = getShortMessages;
 {
     let myObjs = [{
         'message': 'potato',
+    }, {
+        'message': 'ssssssssssssddsdsdsdsdsdsdsddddddddddddddsdsdsdsdsdsdss',
     }];
-    console.log('Ideal case: ', getShortMessages(myObjs).length === 1);
+    let result = getShortMessages(myObjs);
+    console.log(result);
+    let check = result.length === 1 && result[0] === 'potato';
+    console.log('Ideal case: ', check);
 }
 
 // Empty array
