@@ -4,6 +4,9 @@
  * @return {Object}
  */
 function countWords(inputWords) {
+    if (inputWords.length === 0) {
+        return null;
+    }
     return inputWords.reduce(function reduceFunction(accumulator, newEntry) {
         if (typeof accumulator === 'string') {
             let copy = accumulator;
@@ -27,4 +30,11 @@ module.exports = countWords;
     let obj = countWords(arr);
     let check = obj['a'] === 2 && obj['b'] === 2;
     console.log('Ideal case', check);
+}
+
+// Empty case
+{
+    let arr = [];
+    let obj = countWords(arr);
+    console.log('Empty array:', obj === null);
 }
