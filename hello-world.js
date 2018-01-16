@@ -5,4 +5,7 @@ function upperCaser(input) {
 module.exports = upperCaser
 
 // Ideal case
-console.log(upperCaser('hello') === 'HELLO');
+console.log('Ideal case test:\t', upperCaser('hello') === 'HELLO');
+
+// More than one word
+console.log('More words test:\t', upperCaser('hello world') === 'HELLO WORLD');
