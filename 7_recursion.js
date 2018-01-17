@@ -1,17 +1,22 @@
-function reduce(arr, fn, init) {
-  // console.log(arr, init);
-  if (arr.length === 0) {
+function reduce(arr, fn, init, i) {
+  let index = i;
+  if (index === undefined) {
+    index = 0;
+  }
+  if (arr.length === index) {
     return init;
   }
-  const newEntry = arr.pop();
-  const newVal = fn(newEntry, init);
-  return reduce(arr, fn, newVal);
+  const newEntry = arr[index];
+  const newVal = fn(init, newEntry, index, arr);
+  return reduce(arr, fn, newVal, index + 1);
 }
+
+module.exports = reduce;
 
 // Number reduction
 {
   const arr = [1, 2, 3];
-  function fn(a, b) {
+  function fn(a, b, index, arrLocal) {
     return a + b;
   }
   const init = 0;
