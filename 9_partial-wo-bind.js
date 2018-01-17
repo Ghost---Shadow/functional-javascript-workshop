@@ -9,7 +9,7 @@ function logger(namespace) {
 }
 
 module.exports = logger;
-
+/*
 // Basic testing
 {
   const warn = logger('WARN:');
@@ -27,4 +27,4 @@ module.exports = logger;
 
   warn = logger('WARN:');
   console.log('Null arguments:\t', warn(null) === 'WARN:');
-}
+} */
