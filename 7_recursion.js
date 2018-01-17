@@ -32,5 +32,16 @@ module.exports = reduce;
   }
   const init = '';
   const result = reduce(arr, fn, init);
-  console.log('Number reduction:\t', result === arr.join(''));
+  console.log('String reduction:\t', result === arr.join(''));
+}
+
+// Null reduction
+{
+  const arr = [];
+  function fn(a, b, index, arrLocal) {
+    return a + b;
+  }
+  const init = null;
+  const result = reduce(arr, fn, init);
+  console.log('Empty reduction:\t', result === null);
 }
