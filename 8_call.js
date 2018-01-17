@@ -18,5 +18,16 @@ module.exports = duckCount;
 {
   const obj1 = null;
   const obj2 = null;
-  console.log('Ideal case:', duckCount(obj1, obj2) === 0);
+  console.log('Null case:', duckCount(obj1, obj2) === 0);
+}
+
+// Null, empty and undefined argument case
+{
+  const obj1 = { quack: null };
+  const obj2 = { quack: '' };
+  const obj3 = { quack: undefined };
+  console.log(
+    'Null, empty and undefined argument case:',
+    duckCount(obj1, obj2, obj3) === 3,
+  );
 }
