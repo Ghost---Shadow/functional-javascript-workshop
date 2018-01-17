@@ -1,8 +1,7 @@
-function duckCount() {
-  return Array.prototype.slice.call(arguments)
-    .filter(obj => obj) // remove null objects
-    .filter(obj => Object.prototype.hasOwnProperty.call(obj, 'quack'))
-    .length;
+function duckCount(...args) {
+  const nullFiltered = args.filter(obj => obj); // remove null objects
+  const validObjects = nullFiltered.filter(obj => Object.prototype.hasOwnProperty.call(obj, 'quack'));
+  return validObjects.length;
 }
 
 module.exports = duckCount;
