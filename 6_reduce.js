@@ -4,37 +4,38 @@
  * @return {Object}
  */
 function countWords(inputWords) {
-    if (inputWords.length === 0) {
-        return null;
+  if (inputWords.length === 0) {
+    return null;
+  }
+  return inputWords.reduce((accumulator, newEntry) => {
+    let myAccumulator = accumulator;
+    if (typeof myAccumulator === 'string') {
+      const copy = myAccumulator;
+      myAccumulator = {};
+      myAccumulator[copy] = 1;
     }
-    return inputWords.reduce(function reduceFunction(accumulator, newEntry) {
-        if (typeof accumulator === 'string') {
-            let copy = accumulator;
-            accumulator = {};
-            accumulator[copy] = 1;
-        }
-        if (accumulator[newEntry] === undefined) {
-            accumulator[newEntry] = 1;
-        } else {
-            accumulator[newEntry]++;
-        }
-        return accumulator;
-    });
+    if (accumulator[newEntry] === undefined) {
+      myAccumulator[newEntry] = 1;
+    } else {
+      myAccumulator[newEntry] += 1;
+    }
+    return myAccumulator;
+  });
 }
 
 module.exports = countWords;
 
 // Ideal case
 {
-    let arr = ['a', 'b', 'a', 'b'];
-    let obj = countWords(arr);
-    let check = obj['a'] === 2 && obj['b'] === 2;
-    console.log('Ideal case', check);
+  const arr = ['a', 'b', 'a', 'b'];
+  const obj = countWords(arr);
+  const check = obj.a === 2 && obj.b === 2;
+  console.log('Ideal case', check);
 }
 
 // Empty case
 {
-    let arr = [];
-    let obj = countWords(arr);
-    console.log('Empty array:', obj === null);
+  const arr = [];
+  const obj = countWords(arr);
+  console.log('Empty array:', obj === null);
 }

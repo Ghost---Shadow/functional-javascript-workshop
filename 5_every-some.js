@@ -5,65 +5,61 @@
  * @return {Function}
  */
 function checkUsersValid(goodUsers) {
-    return function allUsersValid(submittedUsers) {
-        return submittedUsers.every(function isInArray(obj1) {
-            return goodUsers.some(function exists(obj2) {
-                return obj1.id === obj2.id;
-            });
-        });
-    };
+  return function allUsersValid(submittedUsers) {
+    return submittedUsers.every(obj1 => goodUsers.some(obj2 => obj1.id === obj2.id));
+  };
 }
 
 module.exports = checkUsersValid;
 
 // Ideal case
 {
-    let goodUsers = [
-        {
-            id: 1,
-        },
-        {
-            id: 2,
-        },
-        {
-            id: 3,
-        },
-    ];
-    let testAllValid = [
-        {
-            id: 2,
-        },
-        {
-            id: 1,
-        },
-    ];
-    console.log('Ideal case:\t', checkUsersValid(goodUsers)(testAllValid));
+  const goodUsers = [
+    {
+      id: 1,
+    },
+    {
+      id: 2,
+    },
+    {
+      id: 3,
+    },
+  ];
+  const testAllValid = [
+    {
+      id: 2,
+    },
+    {
+      id: 1,
+    },
+  ];
+  console.log('Ideal case:\t', checkUsersValid(goodUsers)(testAllValid));
 }
 
 // False case
 {
-    let goodUsers = [
-        {
-            id: 1,
-        },
-        {
-            id: 2,
-        },
-        {
-            id: 3,
-        },
-    ];
-    let testAllValid = [
-        {
-            id: 2,
-        },
-        {
-            id: 1,
-        },
-        {
-            id: 4,
-        },
-    ];
-    let check = checkUsersValid(goodUsers)(testAllValid);
-    console.log('False case:\t', check === false);
+  const goodUsers = [
+    {
+      id: 1,
+    },
+    {
+      id: 2,
+    },
+    {
+      id: 3,
+    },
+  ];
+  const testAllValid = [
+    {
+      id: 2,
+    },
+    {
+      id: 1,
+    },
+    {
+      id: 4,
+    },
+  ];
+  const check = checkUsersValid(goodUsers)(testAllValid);
+  console.log('False case:\t', check === false);
 }
