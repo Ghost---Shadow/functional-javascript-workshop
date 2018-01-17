@@ -1,8 +1,4 @@
-function reduce(arr, fn, init, i) {
-  let index = i;
-  if (index === undefined) {
-    index = 0;
-  }
+function reduce(arr, fn, init, index = 0) {
   if (arr.length === index) {
     return init;
   }
